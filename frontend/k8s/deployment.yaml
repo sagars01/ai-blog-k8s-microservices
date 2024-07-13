@@ -1,22 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-svc-deployment
+  name: frontend-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: auth-svc
+      app: frontend
   template:
     metadata:
       labels:
-        app: auth-svc
+        app: frontend
     spec:
       containers:
-      - name: auth-svc
-        image: auth-svc:latest
+      - name: frontend
+        image: frontend:latest
         ports:
         - containerPort: 3000
+        imagePullPolicy: Never
         env:
         - name: NODE_ENV
           value: "production"
