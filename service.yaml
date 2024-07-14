@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-health-api
+spec:
+  selector:
+    app: go-health-api
+  ports:
+  - port: 80
+    targetPort: 8080
+  type: NodePort

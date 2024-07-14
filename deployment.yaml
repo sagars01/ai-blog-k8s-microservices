@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-health-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-health-api
+  template:
+    metadata:
+      labels:
+        app: go-health-api
+    spec:
+      containers:
+      - name: go-health-api
+        image: go-health-api:v1
+        ports:
+        - containerPort: 8080
